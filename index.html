@@ -6,24 +6,86 @@
     <title>Unity WebGL Player | Self-Assembly Demo</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Soft Matter Demos</title>
+	<style>
+		.jumbotron{
+		  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("img/background.png");
+		  background-size: cover;
+		}
+
+		.jumbo_text {
+		  color: white;
+		}	
+		
+
+		.vertical-alignment-helper {
+			display:table;
+			height: 100%;
+			width: 100%;
+			pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+		}
+		.vertical-align-center {
+			/* To center vertically */
+			display: table-cell;
+			vertical-align: middle;
+			pointer-events:none;
+		}
+		.modal-content {
+			/* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+			width:inherit;
+			max-width:inherit; /* For Bootstrap 4 - to avoid the modal window stretching full width */
+			height:inherit;
+			/* To center horizontally */
+			margin: 0 auto;
+			pointer-events: all;
+		}
+
+	</style>
   </head>
+  
   <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Self-Assembly Demo</div>
-      </div>
-    </div>
-    <script>
+    
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3 text-white">Soft Matter Demos</h1>
+			</div>
+		</div>
+		
+		<div class="container">
+		
+				<p><b>This is a WebGL version of the self-assembly demo at:</b></p>
+				<p><a href="https://www.softmatterdemos.org">www.softmatterdemos.org</a></p>
+				<p><b>Note that this version is experimental, and has some performance issues. Downloadable versions for various operating systems are available on the website.</b></p>
+				
+		</div>
+	
+		<div class="container">
+
+			<div id="unity-container" class="unity-desktop" width=500>
+				<canvas id="unity-canvas" width=100%></canvas>
+				<div id="unity-loading-bar">
+					<div id="unity-logo"></div>
+					<div id="unity-progress-bar-empty">
+						<div id="unity-progress-bar-full"></div>
+					</div>
+				</div>
+				<div id="unity-warning"> </div>
+				<div id="unity-footer">
+					<div id="unity-webgl-logo"></div>
+					<div id="unity-fullscreen-button"></div>
+					<div id="unity-build-title">Self-Assembly Demo</div>
+				</div>
+			</div>
+		</div>
+    <script src="Build/WebGL.loader.js"></script>
+<script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
